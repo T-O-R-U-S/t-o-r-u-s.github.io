@@ -23,8 +23,7 @@
 </code>
 
 <code>
-	<pre class="bg-yellow-50 pl-7 w-5/6 m-4 rounded-2xl">
-{@html highlighted}
-	</pre>
+	<pre class="bg-yellow-50 pl-7 w-5/6 m-4 rounded-2xl">{@html highlighted}
+</pre>
 </code>
 

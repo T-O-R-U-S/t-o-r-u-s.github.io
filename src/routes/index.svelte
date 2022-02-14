@@ -8,14 +8,20 @@
 
 <Code language="rust">
 {`
+// Built using actix_web, the most popular
+// Rust backend library.
 #[get('/')]
-fn i_heart_rust(_req: HttpRequest) -> impl Responder {
+async fn i_heart_rust(_req: HttpRequest) -> impl Responder {
 	"I ❤️ Rust!"
 }
 
-fn main() {
-	let app = App::new()
-		.service(i_heart_rust);
+#[actix::main]
+async fn main() -> std::io::Result<()> {
+	HttpServer::new(|| App::new().service(i_heart_rust))
+        .bind("127.0.0.1:8080")?
+        .run()
+        .await
+	// Returns "I ❤️ Rust!" when opened in a browser (at https://127.0.0.1)
 }
 `}
 </Code>
